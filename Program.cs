@@ -1,4 +1,5 @@
 ﻿using System;
+using BoardLayer;
 
 namespace ChessConsole
 {
@@ -6,7 +7,7 @@ namespace ChessConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Board board = new Board(new Vector2(8, 8));
         }
     }
 }
