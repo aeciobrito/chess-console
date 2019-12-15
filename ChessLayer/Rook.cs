@@ -7,6 +7,7 @@ namespace ChessLayer
     {
         public Rook(ConsoleColor color, Board board) : base(color, board)
         {
+            //Character = "R";
             Character = "♜";
         }
     }

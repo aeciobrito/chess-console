@@ -7,7 +7,7 @@ namespace ChessLayer
     {
         public Knight(ConsoleColor color, Board board) : base(color, board)
         {
-            Character = "H";
+            //Character = "H";
             Character = "♞";
         }
     }

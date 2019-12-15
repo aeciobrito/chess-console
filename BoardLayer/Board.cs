@@ -18,10 +18,17 @@ namespace BoardLayer
             return _tiles[x, y];
         }
 
+        public Piece Piece(Vector2 position)
+        {
+            return _tiles[position.x, position.y];
+        }
+
         public void SetPiece(Piece piece, Vector2 position)
         {
             _tiles[position.x, position.y] = piece;
             piece.SetPosition(position);
         }
+
+
     }
 }
