@@ -8,13 +8,23 @@ namespace BoardLayer
         public ConsoleColor Color { get; private set; }        
         public Board Board { get; set; }
         public int MoveCounter { get; private set; }
+        public string Character { get; protected set; }
 
-        public Piece(Vector2 position, ConsoleColor color, Board board)
+        public Piece(ConsoleColor color, Board board)
         {
-            Position = position;
             Color = color;
             Board = board;
             MoveCounter = 0;
+        }
+
+        public override string ToString()
+        {
+            return Character;
+        }
+
+        public void SetPosition(Vector2 position)
+        {
+            Position = position;
         }
     }
 }
