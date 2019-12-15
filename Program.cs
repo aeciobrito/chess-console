@@ -7,7 +7,8 @@ namespace ChessConsole
     {
         static void Main(string[] args)
         {
-            Board board = new Board(new Vector2(8, 8));
+            Board chessBoard = new Board(new Vector2(15, 20));
+            Display.ShowBoard(chessBoard);
         }
     }
 }

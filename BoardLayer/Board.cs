@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BoardLayer
 {
@@ -13,6 +11,11 @@ namespace BoardLayer
         {
             Size = size;
             _tiles = new Piece[size.x, size.y];
+        }
+
+        public Piece Piece(int x, int y)
+        {
+            return _tiles[x, y];
         }
     }
 }
