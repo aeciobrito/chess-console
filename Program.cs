@@ -20,8 +20,8 @@ namespace ChessConsole
 
                 chessBoard.SetPiece(new Rook(ConsoleColor.Red, chessBoard), new Vector2(0, 0));
                 chessBoard.SetPiece(new Rook(ConsoleColor.Red, chessBoard), new Vector2(0, 7));
-                chessBoard.SetPiece(new King(ConsoleColor.Red, chessBoard), new Vector2(0, 4));
-                chessBoard.SetPiece(new Queen(ConsoleColor.Red, chessBoard), new Vector2(0, 3));
+                chessBoard.SetPiece(new King(ConsoleColor.Red, chessBoard), new Vector2(0, 3));
+                chessBoard.SetPiece(new Queen(ConsoleColor.Red, chessBoard), new Vector2(0, 4));
                 chessBoard.SetPiece(new Bishop(ConsoleColor.Red, chessBoard), new Vector2(0, 2));
                 chessBoard.SetPiece(new Bishop(ConsoleColor.Red, chessBoard), new Vector2(0, 5));
                 chessBoard.SetPiece(new Knight(ConsoleColor.Red, chessBoard), new Vector2(0, 1));
@@ -37,8 +37,8 @@ namespace ChessConsole
 
                 chessBoard.SetPiece(new Rook(ConsoleColor.Blue, chessBoard), new Vector2(7, 0));
                 chessBoard.SetPiece(new Rook(ConsoleColor.Blue, chessBoard), new Vector2(7, 7));
-                chessBoard.SetPiece(new King(ConsoleColor.Blue, chessBoard), new Vector2(7, 4));
-                chessBoard.SetPiece(new Queen(ConsoleColor.Blue, chessBoard), new Vector2(7, 3));
+                chessBoard.SetPiece(new King(ConsoleColor.Blue, chessBoard), new Vector2(7, 3));
+                chessBoard.SetPiece(new Queen(ConsoleColor.Blue, chessBoard), new Vector2(7, 4));
                 chessBoard.SetPiece(new Bishop(ConsoleColor.Blue, chessBoard), new Vector2(7, 2));
                 chessBoard.SetPiece(new Bishop(ConsoleColor.Blue, chessBoard), new Vector2(7, 5));
                 chessBoard.SetPiece(new Knight(ConsoleColor.Blue, chessBoard), new Vector2(7, 1));

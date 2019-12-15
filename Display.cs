@@ -8,8 +8,11 @@ namespace ChessConsole
     {
         public static void ShowBoard(Board board)
         {
+            ResetColors();
+            Console.WriteLine("  A B C D E F G H");
             for (int x = 0; x < board.Size.x; x++)
             {
+                Console.Write(8-x + " ");
                 for (int y = 0; y < board.Size.y; y++)
                 {
                     if (((x + y) % 2 == 0)) //Vitu
@@ -17,14 +20,24 @@ namespace ChessConsole
                     else
                         Console.BackgroundColor = ConsoleColor.Black;
 
-                    if(board.Piece(x, y) != null)
+                    if (board.Piece(x, y) != null)
+                    {
+                        Console.ForegroundColor = board.Piece(x,y).Color;
                         Console.Write(board.Piece(x, y) + " ");
+                    }
                     else
                         Console.Write("  ");                    
                 }
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.WriteLine();
+                ResetColors();
+                Console.WriteLine(" " + (8 - x));
             }
+            Console.WriteLine("  A B C D E F G H");
+        }
+
+        public static void ResetColors()
+        {
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Green;
         }
     }
 }
