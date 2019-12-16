@@ -26,5 +26,10 @@ namespace BoardLayer
         {
             Position = position;
         }
+
+        public void MoveIncrease()
+        {
+            MoveCounter++;
+        }
     }
 }

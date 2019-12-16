@@ -2,7 +2,7 @@
 
 namespace BoardLayer
 {
-    struct Vector2
+    class Vector2
     {
         public int x, y;
 

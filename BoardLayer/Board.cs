@@ -10,7 +10,14 @@ namespace BoardLayer
         public Board(Vector2 size)
         {
             Size = size;
-            _tiles = new Piece[size.x, size.y];
+            _tiles = new Piece[Size.x, Size.y];
+        }
+        
+        public Board(int lines, int columns)
+        {
+            Size.x = lines;
+            Size.y = columns;
+            _tiles = new Piece[Size.x, Size.y];
         }
 
         public Piece Piece(int x, int y)
@@ -29,13 +36,26 @@ namespace BoardLayer
             return Piece(position) != null;
         }
 
-        public void SetPiece(Piece piece, Vector2 position)
+        public void PutPiece(Piece piece, Vector2 position)
         {
             if (BusyPlace(position))
                 throw new BoardExeption("There is a piece here already");
 
             _tiles[position.x, position.y] = piece;
             piece.SetPosition(position);
+        }
+
+        public Piece RemovePiece(Vector2 position)
+        {
+            if (Piece(position) == null)
+            {
+                return null;
+            }
+
+            Piece piece = Piece(position);
+            piece.SetPosition(null);
+            _tiles[position.x, position.y] = null;
+            return piece;
         }
 
         public void ValidPosition(Vector2 position)
