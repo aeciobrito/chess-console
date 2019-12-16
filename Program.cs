@@ -18,9 +18,19 @@ namespace ChessConsole
             {
                 GameManager gameManager = new GameManager();
 
-                
 
-                Display.ShowBoard(gameManager.Board);
+                while (true)
+                {
+                    Console.Clear();
+                    Display.ShowBoard(gameManager.Board);
+                    
+                    Console.WriteLine();
+                    Console.Write("Selecet a piece: ");
+                    Vector2 startPoint = Display.ReadPositions().ToVector2();
+                    Console.Write("Selecet a destiny: ");
+                    Vector2 endPoint = Display.ReadPositions().ToVector2();
+                    gameManager.Move(startPoint, endPoint);
+                }     
             }
             catch (BoardExeption e)
             {

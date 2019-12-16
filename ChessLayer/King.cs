@@ -8,7 +8,7 @@ namespace ChessLayer
         public King(ConsoleColor color, Board board) : base(color, board)
         {
             //Character = "K";
-            Character = "♛";
+            Character = "♚";
         }
     }
 }
