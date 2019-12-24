@@ -18,49 +18,49 @@ namespace ChessLayer
             Vector2 position = new Vector2(0, 0);
 
             position.SetPosition(Position.x - 1, Position.y);
-            if (Board.ValidPosition(position) && CanMove(position))
+            if (Board.ValidPosition(position) && ValidPiece(position))
             {
                 validMove[position.x, position.y] = true;
             }
 
             position.SetPosition(Position.x - 1, Position.y + 1);
-            if (Board.ValidPosition(position) && CanMove(position))
+            if (Board.ValidPosition(position) && ValidPiece(position))
             {
                 validMove[position.x, position.y] = true;
             }
 
             position.SetPosition(Position.x - 1, Position.y - 1);
-            if (Board.ValidPosition(position) && CanMove(position))
+            if (Board.ValidPosition(position) && ValidPiece(position))
             {
                 validMove[position.x, position.y] = true;
             }
 
             position.SetPosition(Position.x, Position.y - 1);
-            if (Board.ValidPosition(position) && CanMove(position))
+            if (Board.ValidPosition(position) && ValidPiece(position))
             {
                 validMove[position.x, position.y] = true;
             }
 
             position.SetPosition(Position.x, Position.y + 1);
-            if (Board.ValidPosition(position) && CanMove(position))
+            if (Board.ValidPosition(position) && ValidPiece(position))
             {
                 validMove[position.x, position.y] = true;
             }
 
             position.SetPosition(Position.x + 1, Position.y);
-            if (Board.ValidPosition(position) && CanMove(position))
+            if (Board.ValidPosition(position) && ValidPiece(position))
             {
                 validMove[position.x, position.y] = true;
             }
 
             position.SetPosition(Position.x + 1, Position.y + 1);
-            if (Board.ValidPosition(position) && CanMove(position))
+            if (Board.ValidPosition(position) && ValidPiece(position))
             {
                 validMove[position.x, position.y] = true;
             }
 
             position.SetPosition(Position.x + 1, Position.y - 1);
-            if (Board.ValidPosition(position) && CanMove(position))
+            if (Board.ValidPosition(position) && ValidPiece(position))
             {
                 validMove[position.x, position.y] = true;
             }

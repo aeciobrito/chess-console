@@ -32,12 +32,32 @@ namespace BoardLayer
             MoveCounter++;
         }
 
-        protected bool CanMove(Vector2 position)
+        protected bool ValidPiece(Vector2 position)
         {
             Piece piece = Board.SelectPiece(position);
             return piece == null || piece.Color != Color;
         }
 
         public abstract bool[,] MoveOptions();
+
+        public bool FreeTiles()
+        {
+            bool[,] tiles = MoveOptions();
+
+            for (int i = 0; i < Board.Size.x; i++)
+            {
+                for (int j = 0; j < Board.Size.y; j++)
+                {
+                    if (tiles[i, j])
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        public bool CanMoveTo(Vector2 position)
+        {
+            return MoveOptions()[position.x, position.y];
+        }
     }
 }

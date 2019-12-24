@@ -20,20 +20,36 @@ namespace ChessConsole
 
                 while (true)
                 {
-                    Console.Clear();
-                    Display.ShowBoard(gameManager.Board);
-                    
-                    Console.WriteLine();
-                    Console.Write("Selecet a piece: ");
-                    Vector2 startPoint = Display.ReadPositions().ToVector2();
+                    try
+                    {
+                        Console.Clear();
+                        Display.ShowBoard(gameManager.Board);
+                        Console.WriteLine();
 
-                    bool[,] moveOptions = gameManager.Board.SelectPiece(startPoint).MoveOptions();
-                    Console.Clear();
-                    Display.ShowBoard(gameManager.Board, moveOptions);
-                    
-                    Console.Write("Selecet a destiny: ");
-                    Vector2 endPoint = Display.ReadPositions().ToVector2();
-                    gameManager.Move(startPoint, endPoint);
+                        Console.WriteLine("Turn: " + gameManager.Turn);
+                        Console.WriteLine("Waitin for: " + gameManager.CurrentPlayer);
+
+                        Console.Write("Selecet a piece: ");
+                        Vector2 selectedTile = Display.ReadPositions().ToVector2();
+
+                        gameManager.SelectedPieceRestrictions(selectedTile);
+
+                        bool[,] moveOptions = gameManager.Board.SelectPiece(selectedTile).MoveOptions();
+                        Console.Clear();
+                        Display.ShowBoard(gameManager.Board, moveOptions);
+                        Console.WriteLine();
+
+                        Console.Write("Selecet a destiny: ");
+                        Vector2 destinationTile = Display.ReadPositions().ToVector2();
+                        gameManager.DestinationPieceRestrictions(selectedTile, destinationTile);
+
+                        gameManager.PlayerMove(selectedTile, destinationTile);
+                    } catch (BoardExeption e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Console.Write("Press any key to play again");
+                        Console.ReadLine();
+                    }
                 }     
             }
             catch (BoardExeption e)

@@ -18,7 +18,7 @@ namespace ChessLayer
             Vector2 position = new Vector2(0, 0);
 
             position.SetPosition(Position.x - 1, Position.y);
-            while (Board.ValidPosition(position) && CanMove(position))
+            while (Board.ValidPosition(position) && ValidPiece(position))
             {
                 validMove[position.x, position.y] = true;
 
@@ -29,7 +29,7 @@ namespace ChessLayer
             }
 
             position.SetPosition(Position.x + 1, Position.y);
-            while (Board.ValidPosition(position) && CanMove(position))
+            while (Board.ValidPosition(position) && ValidPiece(position))
             {
                 validMove[position.x, position.y] = true;
 
@@ -40,7 +40,7 @@ namespace ChessLayer
             }
 
             position.SetPosition(Position.x, Position.y + 1 );
-            while (Board.ValidPosition(position) && CanMove(position))
+            while (Board.ValidPosition(position) && ValidPiece(position))
             {
                 validMove[position.x, position.y] = true;
 
@@ -51,7 +51,7 @@ namespace ChessLayer
             }
 
             position.SetPosition(Position.x, Position.y - 1 );
-            while (Board.ValidPosition(position) && CanMove(position))
+            while (Board.ValidPosition(position) && ValidPiece(position))
             {
                 validMove[position.x, position.y] = true;
 
