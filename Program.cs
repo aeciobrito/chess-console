@@ -18,7 +18,6 @@ namespace ChessConsole
             {
                 GameManager gameManager = new GameManager();
 
-
                 while (true)
                 {
                     Console.Clear();
@@ -27,6 +26,11 @@ namespace ChessConsole
                     Console.WriteLine();
                     Console.Write("Selecet a piece: ");
                     Vector2 startPoint = Display.ReadPositions().ToVector2();
+
+                    bool[,] moveOptions = gameManager.Board.SelectPiece(startPoint).MoveOptions();
+                    Console.Clear();
+                    Display.ShowBoard(gameManager.Board, moveOptions);
+                    
                     Console.Write("Selecet a destiny: ");
                     Vector2 endPoint = Display.ReadPositions().ToVector2();
                     gameManager.Move(startPoint, endPoint);

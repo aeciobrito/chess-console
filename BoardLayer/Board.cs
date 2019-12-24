@@ -20,20 +20,22 @@ namespace BoardLayer
             _tiles = new Piece[Size.x, Size.y];
         }
 
-        public Piece Piece(int x, int y)
+        public Piece SelectPiece(int x, int y)
         {
+            //move check valid position to here
             return _tiles[x, y];
         }
 
-        public Piece Piece(Vector2 position)
+        public Piece SelectPiece(Vector2 position)
         {
+            //move check valid position to here
             return _tiles[position.x, position.y];
         }
 
         public bool BusyPlace(Vector2 position)
         {
-            ValidPosition(position);
-            return Piece(position) != null;
+            CheckPosition(position);
+            return SelectPiece(position) != null;
         }
 
         public void PutPiece(Piece piece, Vector2 position)
@@ -47,20 +49,28 @@ namespace BoardLayer
 
         public Piece RemovePiece(Vector2 position)
         {
-            if (Piece(position) == null)
+            if (SelectPiece(position) == null)
             {
                 return null;
             }
 
-            Piece piece = Piece(position);
+            Piece piece = SelectPiece(position);
             piece.SetPosition(null);
             _tiles[position.x, position.y] = null;
             return piece;
         }
 
-        public void ValidPosition(Vector2 position)
+        public bool ValidPosition(Vector2 position)
         {
-            if (position.x < 0 || position.x > Size.x || position.y < 0 || position.y > Size.y)
+            if (position.x < 0 || position.x >= Size.x || position.y < 0 || position.y >= Size.y)
+                return false;
+
+            return true;
+        }
+
+        public void CheckPosition(Vector2 position)
+        {
+            if(!ValidPosition(position))
                 throw new BoardExeption("Invalid Position");
         }
     }

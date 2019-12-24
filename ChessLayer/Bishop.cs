@@ -10,5 +10,10 @@ namespace ChessLayer
             //Character = "B";
             Character = "♝";
         }
+
+        public override bool[,] MoveOptions()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
