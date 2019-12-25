@@ -38,7 +38,7 @@ namespace BoardLayer
             return SelectPiece(position) != null;
         }
 
-        public void PutPiece(Piece piece, Vector2 position)
+        public void SetPiece(Piece piece, Vector2 position)
         {
             if (BusyPlace(position))
                 throw new BoardExeption("There is a piece here already");

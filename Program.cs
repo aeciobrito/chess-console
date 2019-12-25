@@ -6,30 +6,26 @@ namespace ChessConsole
 {
     class Program
     {
-        static int windowsSizeX = 40, windowsSizeY = 15;
+        static int windowsSizeX = 40, windowsSizeY = 20;
 
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.SetWindowSize(windowsSizeX, windowsSizeY);
-            Console.Title = "Chess";
+            Console.Title = "CHESS";
 
             try
             {
                 GameManager gameManager = new GameManager();
 
-                while (true)
+                while (!gameManager.GameOver)
                 {
                     try
                     {
                         Console.Clear();
-                        Display.ShowBoard(gameManager.Board);
-                        Console.WriteLine();
+                        Display.ShowGame(gameManager);
 
-                        Console.WriteLine("Turn: " + gameManager.Turn);
-                        Console.WriteLine("Waitin for: " + gameManager.CurrentPlayer);
-
-                        Console.Write("Selecet a piece: ");
+                        Console.Write("SELECT A PIECE: ");
                         Vector2 selectedTile = Display.ReadPositions().ToVector2();
 
                         gameManager.SelectedPieceRestrictions(selectedTile);
@@ -39,7 +35,7 @@ namespace ChessConsole
                         Display.ShowBoard(gameManager.Board, moveOptions);
                         Console.WriteLine();
 
-                        Console.Write("Selecet a destiny: ");
+                        Console.Write("SELECT A DESTINY: ");
                         Vector2 destinationTile = Display.ReadPositions().ToVector2();
                         gameManager.DestinationPieceRestrictions(selectedTile, destinationTile);
 
@@ -47,7 +43,7 @@ namespace ChessConsole
                     } catch (BoardExeption e)
                     {
                         Console.WriteLine(e.Message);
-                        Console.Write("Press any key to play again");
+                        Console.Write("PRESS ANY KEY TO PLAY AGAIN");
                         Console.ReadLine();
                     }
                 }     

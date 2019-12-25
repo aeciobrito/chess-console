@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BoardLayer;
 using ChessLayer;
 
@@ -7,6 +8,19 @@ namespace ChessConsole
     //White{♔♕♖♗♘♙} Black{♚♛♜♝♞♟}
     class Display
     {
+        public static void ShowGame(GameManager game)
+        {
+            ShowBoard(game.Board);
+            Console.WriteLine();
+            ShowTakenPieces(game);
+            Console.WriteLine("TURN: " + game.Turn);
+            Console.WriteLine();
+            Console.Write("WAITING FOR: ");
+            Console.ForegroundColor = game.CurrentPlayer;
+            Console.WriteLine(game.CurrentPlayer.ToString().ToUpper());
+            ResetColors();
+        }
+
         public static void ShowBoard(Board board)
         {
             ResetColors();
@@ -24,6 +38,7 @@ namespace ChessConsole
             }
             Console.WriteLine("  A B C D E F G H");
         }
+        
         public static void ShowBoard(Board board, bool[,] moveOptions)
         {
             ResetColors();
@@ -74,6 +89,27 @@ namespace ChessConsole
             }
             else
                  Console.Write("  ");
+        }
+
+        public static void ShowTakenPieces(GameManager game)
+        {
+            Console.Write("TAKEN: ");
+            ShowGroupPieces(game.TakenPieces(ConsoleColor.Red));
+            Console.Write("TAKEN: ");
+            ShowGroupPieces(game.TakenPieces(ConsoleColor.Blue));
+        }
+
+        public static void ShowGroupPieces(HashSet<Piece> pieces)
+        {
+            Console.Write("[-");
+            foreach (Piece piece in pieces)
+            {
+                Console.ForegroundColor = piece.Color;
+                Console.Write(piece);
+                ResetColors();
+                Console.Write("-");
+            }
+            Console.WriteLine("]");
         }
 
         public static void ResetColors()
