@@ -31,6 +31,11 @@ namespace BoardLayer
         {
             MoveCounter++;
         }
+        
+        public void MoveDecrease()
+        {
+            MoveCounter--;
+        }
 
         protected bool ValidPiece(Vector2 position)
         {

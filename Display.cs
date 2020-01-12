@@ -18,6 +18,8 @@ namespace ChessConsole
             Console.Write("WAITING FOR: ");
             Console.ForegroundColor = game.CurrentPlayer;
             Console.WriteLine(game.CurrentPlayer.ToString().ToUpper());
+            if (game.Check)
+                Console.WriteLine("Check!");
             ResetColors();
         }
 
