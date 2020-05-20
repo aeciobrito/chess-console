@@ -6,12 +6,12 @@ namespace ChessConsole
 {
     class Program
     {
-        static int windowsSizeX = 40, windowsSizeY = 20;
+        //static int windowsSizeX = 40, windowsSizeY = 20;
 
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.SetWindowSize(windowsSizeX, windowsSizeY);
+            //Console.SetWindowSize(windowsSizeX, windowsSizeY);
             Console.Title = "CHESS";
 
             try
